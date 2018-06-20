@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>GifTastic</title>
+
+    <!-- All my css links -->
+    <!-- first up is a reset -->
+    <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+    <!-- Borrowing some Bootstrap (which should automatically pull a reset.css) if necessary for grid layout -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <!-- Link for my own css-->
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
+    <!-- link to jQuery cdn followed by link to the jQuery/Js file I made -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="assets/javascript/app.js"></script>  
+
+</head>
+<body>
+
+    <div class="container">
+
+        <div class="jumbotron">
+
+            <header class="header">
+
+                <h1>Get yo'self some gifs</h1>
+
+            </header>
+
+            <form class="form-inline">
+                
+                <div class="form-group mx-sm-3 mb-2">
+                    <label for="user-button" class="sr-only">Button</label>
+                    <input type="topic" class="form-control" id="user-button" placeholder="Button...">
+                </div>
+                
+                <button type="submit" class="btn btn-info mb-2" id="add-button">Add a Button</button>
+                
+                <p class="form-group mx-sm-3 mb-2">Then click a button. Enjoy.</p>
+            
+            </form>
+
+            <!-- This is where the gifs go -->
+            <div id="button-town"></div>
+
+        </div>
+
+        <div class="col-sm-12" id="gif-town"></div>
+
+
+    </div>
+
+
+<!-- api key: z7LzL8NuBkyn0IOdY2oxan0962WvtV6Y -->
+
+</body>
+</html>
