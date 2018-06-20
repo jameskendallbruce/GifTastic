@@ -1,6 +1,6 @@
 $( document ).ready(function() {
 
-    var movies = ["The Matrix", "The Notebook", "Mr. Nobody", "The Lion King"];
+    var movies = ["In the Mood for Love", "Moonlight", "The House of the Devil", "Scott Pilgrim v. the World", "Breathless"];
 
     var status = true;
 
@@ -89,6 +89,59 @@ $( document ).ready(function() {
         }
       
     }
+
+    $(".movie-btn").on("click", function() {
+      
+        //filling the new var person with the value of the button's attribute 'data-person'... but you could call it anything 
+        var searchTerm = $(this).attr("data-name");
+  
+        // variable that is a giphy api search with the person variable inserted into it.
+        // This includes a limit of returned results to 10.
+        var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
+          searchTerm + "&api_key=dc6zaTOxFJmzC&limit=10";
+  
+        // simple ajax method like always
+        $.ajax({
+          url: queryURL,
+          method: "GET"
+
+        // closes and calls the promise above before calling a new function
+        }).then(function(response) {
+  
+            // new variable made up of the api object's data sub-array (full of objects)
+            var results = response.data;
+  
+            // simple for loop intro using the length of the result variable as a parameter
+            for (var i = 0; i < results.length; i++) {
+  
+              // new variable to make a div with class of item (the class seems to be left from an earlier version of the demo)
+              var gifDiv = $("<div>");
+  
+              // var rating is set to the return of each index's rating key.
+              var rating = results[i].rating;
+  
+              // create a new variable for a new paragraph to display the rating.
+              var p = $("<p>").text("Rating: " + rating);
+  
+              // new variable to hold each giphy image returned
+              var personImage = $("<img>");
+  
+              // and we add the version of the image with a fixed height (so they're uniform)
+              // we really need to know this specific api to know what to call
+              personImage.attr("src", results[i].images.fixed_height.url);
+  
+              // prepends the rating and image itself to the gifDiv variable that we created.
+              gifDiv.prepend(p);
+              gifDiv.append(personImage);
+  
+              // prepending that whole div (gifDiv) to the existing DOM div "#gifs-appear-here"
+              $("#gif-town").prepend(gifDiv);
+
+            }
+
+        });
+
+    });
 
 
 
