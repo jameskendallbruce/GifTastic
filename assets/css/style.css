@@ -41,3 +41,8 @@ body{
 .title-slot{
     font-size: 22px;
 }
+
+.sample {
+    width: 500px;
+    margin: 10px;
+}
