@@ -11,6 +11,12 @@
     <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
     <!-- Borrowing some Bootstrap (which should automatically pull a reset.css) if necessary for grid layout -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+
+    <!-- some good ol' google fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Carme|Caveat|Permanent+Marker" rel="stylesheet">
     <!-- Link for my own css-->
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 
@@ -23,24 +29,26 @@
 
     <div class="container">
 
-        <div class="jumbotron">
+        <div class="jumbotron bg-secondary text-white">
 
             <header class="header">
 
-                <h1>Get yo'self some gifs</h1>
+                <h1>Animated Gifs</h1>
 
             </header>
+
+            <p class="form-group mx-sm-3 mb-2 comm">Looking for something else?</p>
 
             <form class="form-inline">
                 
                 <div class="form-group mx-sm-3 mb-2">
-                    <label for="user-button" class="sr-only">Button</label>
-                    <input type="topic" class="form-control" id="user-button" placeholder="Button...">
+                    <label for="user-entry" class="sr-only">Button</label>
+                    <input type="topic" class="form-control" id="user-entry" placeholder="Button...">
                 </div>
                 
-                <button type="submit" class="btn btn-info mb-2" id="add-button">Add a Button</button>
+                <button type="submit" class="btn btn-info mb-2 comm" id="add-button">Add a Searchterm</button>
                 
-                <p class="form-group mx-sm-3 mb-2">Then click a button. Enjoy.</p>
+                <p class="form-group mx-sm-3 mb-2 comm">Then click a button. Enjoy.</p>
             
             </form>
 
@@ -49,7 +57,30 @@
 
         </div>
 
-        <div class="col-sm-12" id="gif-town"></div>
+        <div class="col-sm-12 rounded" id="gif-town"></div>
+
+        <div id="thoughts" class="card bg-secondary text-white p-3">
+                <div class="pos-f-t rounded">
+                        <h3 class="comm">What's this about?</h3>
+                        <div class="collapse" id="navbarToggleExternalContent">
+                          <div class="bg-info p-4">
+                            <h5 class="text-white h4 comm">Oh for real? I can explain.</h5>
+                            <span class="comm">
+
+                                <p>I'm a big fan of animation but I don't really like to think of animation as a genre. It's a medium. And within that medium there is a huge array of possible styles and approaches.</p>
+                                <p>What excites me so much about animation is that it's an artform with limitless possibilities for how to convey information, emotion or action. Animation presents filmmakers with an opportunity to display exactly what they want to on the screen. Nothing is incidental.</p>
+                                <p>These are just some examples of talented artists at work. Feel free to take them with you.</p>
+
+                            </span>
+                          </div>
+                        </div>
+                        <nav class="navbar navbar-dark bg-dark ">
+                          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                          </button>
+                        </nav>
+                      </div>
+        </div>
 
 
     </div>

@@ -1,0 +1,43 @@
+.header {
+    font-family: 'Permanent Marker', cursive;
+    letter-spacing: 3px;
+
+}
+
+.comm {
+    font-family: 'Carme', sans-serif;
+}
+
+.movieButton {
+    font-family: 'Caveat', cursive;
+    letter-spacing: 1px;
+    font-size: 20px;
+}
+
+body{
+    background: url(https://media.giphy.com/media/3vxGcseCtj6r83EgQi/giphy.gif);
+}
+
+.jumbotron{
+    margin-top: 20px;
+}
+
+#gif-town {
+    display: none;
+    background: url(../images/connectwork.png);
+    margin-bottom: 20px;
+}
+
+#thoughts{
+    margin-bottom: 20px;
+}
+
+
+.card-text{
+    font-family: 'Carme', sans-serif;
+    padding-top: 10px;
+}
+
+.title-slot{
+    font-size: 22px;
+}

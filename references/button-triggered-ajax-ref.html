@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Quoth the Giphy</title>
+</head>
+
+<body>
+  <div id="buttons">
+
+    <button data-person="arnold schwarzenegger">
+      I'll be back
+    </button>
+
+    <button data-person="michael j fox">
+      My happiness grows in direct proportion to my acceptance,
+      and in inverse proportion to my expectations.
+    </button>
+
+    <!-- STEP ONE: Open this file in the browser and click on the buttons. Watch what happens -->
+
+    <!-- STEP TWO: between the dashed lines below
+            * add three more buttons
+            * add a data-person attribute of famous people you know
+            * with a quote said by them -->
+
+    <!-- **************************************** -->
+
+    <button data-person="jeff goldblum">Life... uh. Finds a way.</button>
+
+    <button data-person="The Iron Giant">Superman...</button>
+
+    <button data-person="han solo">Never tell me the odds.</button>
+    <!-- **************************************** -->
+
+
+    <!-- STEP THREE: open this file in the browser and click on your buttons. If they don't work, then fix your buttons -->
+
+    <!-- STEP FOUR: go over the JavaScript with your partners, and explain the lines of code to each other. -->
+
+  </div>
+
+  <div id="gifs-appear-here">
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script type="text/javascript">
+
+    // creating an on click listener for all buttons
+    $("button").on("click", function() {
+      
+      //filling the new var person with the value of the button's attribute 'data-person'... but you could call it anything 
+      var person = $(this).attr("data-person");
+
+      // variable that is a giphy api search with the person variable inserted into it.
+      // This includes a limit of returned results to 10.
+      var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
+        person + "&api_key=dc6zaTOxFJmzC&limit=100";
+
+      // simple ajax method like always
+      $.ajax({
+        url: queryURL,
+        method: "GET"
+      })
+        // calls the promise above before calling a new function
+        .then(function(response) {
+
+          // new variable made up of the api object's data sub-array (full of objects)
+          var results = response.data;
+
+          // simple for loop intro using the length of the result variable as a parameter
+          for (var i = 0; i < results.length; i++) {
+
+            // new variable to make a div with class of item (the class seems to be left from an earlier version of the demo)
+            var gifDiv = $("<div class='item'>");
+
+            // var rating is set to the return of each index's rating key.
+            var rating = results[i].rating;
+
+            // create a new variable for a new paragraph to display the rating.
+            var p = $("<p>").text("Rating: " + rating);
+
+            // new variable to hold each giphy image returned
+            var personImage = $("<img>");
+
+            // and we add the version of the image with a fixed height (so they're uniform)
+            // we really need to know this specific api to know what to call
+            personImage.attr("src", results[i].images.fixed_height.url);
+
+            // prepends the rating and image itself to the gifDiv variable that we created.
+            gifDiv.prepend(p);
+            gifDiv.prepend(personImage);
+
+            // prepending that whole div (gifDiv) to the existing DOM div "#gifs-appear-here"
+            $("#gifs-appear-here").prepend(gifDiv);
+          }
+        });
+    });
+  </script>
+</body>
+
+</html>
