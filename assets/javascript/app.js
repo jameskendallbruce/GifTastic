@@ -134,6 +134,8 @@ $( document ).ready(function() {
 
             $("#gif-town").show();
 
+            $("#gif-town").empty();
+
             //filling the new var person with the value of the button's attribute 'data-person'... but you could call it anything 
             var searchTerm = $(this).attr("data-name");
   
