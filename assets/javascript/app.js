@@ -1,6 +1,5 @@
+// always start with a ready function
 $( document ).ready(function() {
-
-    // var movies = ["In the Mood for Love", "Moonlight", "The House of the Devil", "Scott Pilgrim v. the World", "Oldboy", "Breathless", "The Iron Giant", "Hara Kiri", "Drive", "Star Wars"];
 
     // this is an alternate movie array. Moving the focus to animation.
     var movies = [
@@ -19,34 +18,36 @@ $( document ).ready(function() {
         "Don Hertzfeldt"
     ];
 
+    // variable to check if a new entry already exists in the array.
     var status = true;
 
+    // turned on once gifs are ready
     clickReady = false;
 
     renderButtons();
 
-    // checks if an entry is already in an array
-    function checkStatus(value,arr){
+    // checks if an entry is already in an array. Couldn't quite get it to working 100% consistently so I'm leaving it out for now.
+    // function checkStatus(value,arr){
        
-        for(var i=0; i<arr.length; i++){
+    //     for(var i=0; i<arr.length; i++){
 
-            var name = arr[i];
+    //         var name = arr[i];
          
-            if(name == value){
+    //         if(name == value){
           
-                status = false;
+    //             status = false;
          
-            }
+    //         }
          
-            else{
+    //         else{
             
-                status = true;
+    //             status = true;
          
-            }
+    //         }
 
-        }
+    //     }
         
-    }
+    // }
 
     // This function handles events where a movie is added by the user 
     $("#add-button").on("click", function(event) {
@@ -60,17 +61,16 @@ $( document ).ready(function() {
 
         console.log("input is: " + input);
 
-        // turning these off to check on functionality.
-        // Well, it seems alright maybe. At least it doesn't seem related.
         // checking if input exists in the movies array.
         checkStatus(input, movies);
 
         console.log("Checking status: " + status)
 
-        // making sure that the input isn't blank. Seems to be deleting buttons :/
+        // making sure that the input isn't blank.
         if(input != 0) {
 
-            // checking if the entry passed the checkStatus function. Also seems to delete buttons.
+            // checking if the entry passed the checkStatus function.
+            // Note Status is permanently set in true in the current version.
             if(status == true) {
 
                 // Adding newMovie from the textbox to our array
@@ -155,29 +155,27 @@ $( document ).ready(function() {
                 // simple for loop intro using the length of the result variable as a parameter
                 for (var i = 0; i < results.length; i++) {
   
-                    // new variable to make a div.
+                    // new variable to make a div with some classes for bootstrap/css.
                     var gifDiv = $("<div>");
 
-                    gifDiv.attr("class", "btn btn-light rounded p-2 m-3");
-
-                    // gifDiv.css("width", "50%");
+                    // classes for bootstrap/css
+                    gifDiv.attr("class", "gifDiv btn btn-light rounded p-2 m-3");
   
                     // var rating is set to the return of each index's rating key.
                     var rating = results[i].rating;
 
+                    // this will make up the rest of the gifDiv that isn't the image.
                     var cardBody = $("<div>");
 
+                    // more classes for bootstrap/css
                     cardBody.attr("class", "bg-info");
 
-                    cardBody.html("<div class='card-text px-1 text-white'><p class='title-slot'>" + searchTerm + "</p> <p>Rating: " + rating + "</p>" + "<a class='btn download-button text-info mb-2 bg-light rounded href='" + results[i].images.fixed_height.url + "'>Gif Link</a></div>");
-  
-                    // // create a new variable for a new paragraph to display the rating.
-                    // var p = $("<p>").text("Rating: " + rating);
+                    //adding within cardBody some html for the title, rating and a link to the gif from giphy.com
+                    //Originally the plan was to add a download button but unfortunately neither the download method nor the <a href download> method seem to work with api. They all redirect to giphy.com
+                    cardBody.html("<div class='card-text px-1 text-white'><p class='title-slot'>" + searchTerm + "</p> <p>Rating: " + rating + "</p>" + "<a class='btn download-button text-info mb-2 bg-light rounded' href='" + results[i].images.fixed_height.url + "'>Gif Link</a></div>");
   
                     // new variable to hold each giphy image returned
                     var clickImage = $("<img>");
-
-                    // clickImage.attr("class", "card-img-top")
   
                     // and we add the version of the image with a fixed height (so they're uniform)
                     // we really need to know this specific api to know what to call
@@ -208,12 +206,14 @@ $( document ).ready(function() {
 
     });
 
+    // adds a click event to each clickGif
     $(document).on("click", ".clickGif", function() {
 
         var state = $(this).attr("data-state");
   
         console.log(state);
   
+        // checks the state (whether still or animated)
         if (state === "still") {
   
         // then update the src attribute of this image to it's data-animate value,
@@ -228,7 +228,7 @@ $( document ).ready(function() {
     
         else{
   
-        // If state is equal to 'animate', then update the src attribute of thiss
+        // If state is equal to 'animate', then update the src attribute of this
   
         // image to it's data-still value and update the data-state attribute to 'still'
   

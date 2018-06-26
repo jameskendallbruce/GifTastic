@@ -43,6 +43,65 @@ body{
 }
 
 .sample {
-    width: 500px;
+    width: 700px;
     margin: 10px;
+    width: 100%;
+    border: 0 none;
 }
+
+.clickGif {
+    width:100%;
+}
+
+.gifDiv {
+    width: 30%;
+    word-wrap: break-word;
+}
+
+
+/* messing with some media queries */
+/* and they seem to work just fine. :) */
+
+@media screen and (max-width: 1200px) {
+
+    body {
+      max-width: 960px;
+    }
+  
+    .samples{
+        width: 90%;
+    }
+
+    .gifDiv {
+        width: 45%;
+    }
+
+  }
+  
+  @media screen and (max-width: 768px) {
+  
+    body {
+        max-width: 748px;
+    }
+
+    .samples{
+        width: 90%;
+      }
+
+    .gifDiv{
+        width: 90%;
+    }
+  
+  }
+  
+  @media screen and (max-width: 702px) {
+  
+    .samples{
+        width: 90%;
+    }
+
+    .gifDiv{
+        width: 90%;
+    }
+  
+  }
