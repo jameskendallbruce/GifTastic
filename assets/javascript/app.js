@@ -27,27 +27,27 @@ $( document ).ready(function() {
     renderButtons();
 
     // checks if an entry is already in an array. Couldn't quite get it to working 100% consistently so I'm leaving it out for now.
-    // function checkStatus(value,arr){
+    function checkStatus(value,arr){
        
-    //     for(var i=0; i<arr.length; i++){
+        for(var i=0; i<arr.length; i++){
 
-    //         var name = arr[i];
+            var name = arr[i];
          
-    //         if(name == value){
+            if(name == value){
           
-    //             status = false;
+                status = false;
          
-    //         }
+            }
          
-    //         else{
+            else{
             
-    //             status = true;
+                status = true;
          
-    //         }
+            }
 
-    //     }
+        }
         
-    // }
+    }
 
     // This function handles events where a movie is added by the user 
     $("#add-button").on("click", function(event) {
